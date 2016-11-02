@@ -32,7 +32,12 @@
     header("Content-type: application/json");
 
     // Perform the search query
-    search($db, $keyword, $city, $rating);
+    if(isset($city, $keyword, $rating)){
+        search($db, $keyword, $city, $rating);
+    }
+    else{
+        echo "Missing required parameter(s)";
+    }
 
     // Performs the mongodb query and returns results in json encoded format
     function search($db, $keyword, $city, $rating){
