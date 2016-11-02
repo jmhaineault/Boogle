@@ -5,21 +5,20 @@
         query.php?keyword=bars&city=phoenix&rating=4
 
         Rating is optional and set to 0 if omitted
-    */
-    
+    */    
 
     // Get search parameters to pass to the query function
     $keyword = $_GET['keyword'];
-	$city = $_GET['city'];
+    $city = $_GET['city'];
     $rating = $_GET['rating'];
 
-	// Set the mongodb host and database names
-	$dbhost = 'localhost';
-	$dbname = 'boogle';
+    // Set the mongodb host and database names
+    $dbhost = 'localhost';
+    $dbname = 'boogle';
 
-	// Connect to the mongodb database
-	$m = new MongoClient();
-	$db = $m->$dbname;
+    // Connect to the mongodb database
+    $m = new MongoClient();
+    $db = $m->$dbname;
 
     // If no star rating is specified, set the rating to 0 by defult
     if(empty($rating)){
@@ -36,12 +35,11 @@
     search($db, $keyword, $city, $rating);
 
     // Performs the mongodb query and returns results in json encoded format
-	function search($db, $keyword, $city, $rating){
-		$query = array('city' => new MongoRegex('/.*'.$city.'.*/i'),
+    function search($db, $keyword, $city, $rating){
+        $query = array('city' => new MongoRegex('/.*'.$city.'.*/i'),
                 'categories' => new MongoRegex('/.*'.$keyword.'.*/i'),
                 'stars' => array('$gte' => $rating));
-        
-		$result = $db->business->find($query);
+        $result = $db->business->find($query);
         echo json_encode(iterator_to_array($result, false));
-	}
- ?>
+    }
+?>
