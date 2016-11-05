@@ -56,7 +56,7 @@ p{
 }
 .border-radius{
 	border-radius: 0 !important;
-	border-color: #60c9eb;
+	border-color: #33CC99;
 	height: 45px;
 }
 p:hover{
@@ -249,7 +249,7 @@ ul.nav.navbar-nav.navbar-right{
 .icon{
 	padding: 20px 0;
 	font-size: 35px;
-	color: #60c9eb;
+	color: #33CC99;
 }
 .offer-item h3{
 	padding-bottom: 40px;
@@ -279,7 +279,7 @@ ul.nav.navbar-nav.navbar-right{
 }
 .visit .owl-theme .owl-controls .owl-nav [class*=owl-]{
 	background: #fff;
-	color: #60c9eb;
+	color: #33CC99;
 	font-size: 25px;
 }
 /*=================================================
@@ -291,7 +291,7 @@ ul.nav.navbar-nav.navbar-right{
 }
 .offering{
 	float: right;
-	color: #60c9eb;
+	color: #33CC99;
 	text-align: center;
 	padding: 32px 0;
 }
@@ -310,16 +310,16 @@ ul.nav.navbar-nav.navbar-right{
 	margin-top: -20px;
 }
 .price-btn{
-	background: #60c9eb;
+	background: #33CC99;
     color: #fff;
-    border-color: #60c9eb;
+    border-color: #33CC99;
     text-transform: capitalize;
     margin: 20px;
 }
 .price-btn:hover{
-	color: #60c9eb;
+	color: #33CC99;
     background-color: #fff;
-    border-color: #60c9eb;
+    border-color: #33CC99;
 }
 /*=================================================
 ||				8. Additional Services
@@ -369,7 +369,7 @@ ul.nav.navbar-nav.navbar-right{
 	opacity: 1;
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
-	background: #60c9eb;
+	background: #33CC99;
 }
 .owl-theme .owl-dots .owl-dot span{
 	background: #f1f1f1;
@@ -382,13 +382,13 @@ ul.nav.navbar-nav.navbar-right{
 }
 .brand-logo{
 	font-size: 33px;
-	color: #60c9eb;
+	color: #33CC99;
 }
 a.brand-logo span{
 	color: #583b54;
 }
 a.brand-logo:focus, a.brand-logo:hover{
-	color: #60c9eb;
+	color: #33CC99;
 	text-decoration: none;
 }
 
@@ -398,9 +398,9 @@ a.brand-logo:focus, a.brand-logo:hover{
 	margin: 40px 0 20px;
 }
 .custom-sub-btn{
-	background-color: #60c9eb;
+	background-color: #33CC99;
 	color: #fff;
-	border-color: #60c9eb;
+	border-color: #33CC99;
 	transition: all .4s ease-in-out;
 }
 .custom-sub-btn:hover{
@@ -423,7 +423,7 @@ a.brand-logo:focus, a.brand-logo:hover{
     padding: 5px;
 }
 .social-icon a{
-	color: #60c9eb;
+	color: #33CC99;
 }
 .social-icon a:hover{
 	color: #53B1DE;
@@ -432,7 +432,7 @@ a.brand-logo:focus, a.brand-logo:hover{
 footer{
 	text-align: center;
 	padding: 20px;
-	background: #60c9eb;
+	background: #33CC99;
 }
 footer a{
 	color: #fff;

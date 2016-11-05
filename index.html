@@ -78,6 +78,13 @@
 			.intro{
 				margin-bottom: 10%;
 			}
+			.firstHeading{
+				color:#33CC99;
+			}
+			.siteNotice{				
+				border-color:#33CC99 !important;
+				background-color: rgba(0,0,0,.7);
+			}
         </style>
 
         <script type="text/javascript">
@@ -176,11 +183,13 @@
 				locations.push({name:"California",latlng: new google.maps.LatLng(36.778261,-119.417924)});
 				for(var i = 0; i<locations.length; i++){
 					var marker = new google.maps.Marker({
+						animation: google.maps.Animation.DROP,
 						position: locations[i].latlng,
 						map:map,
 						title: locations[i].name
 					});
-					var contentString = '<div id="'+locations[i].name+'s">'+
+					marker.addListener('click', toggleBounce);
+					var contentString = '<div id="'+locations[i].name+'s" style="border-color: red">'+
 					'<div id="siteNotice">'+
 					'</div>'+
 					'<h1 id="firstHeading" class="firstHeading">'+ locations[i].name +'</h1>'+
@@ -201,6 +210,13 @@
 						infoWindow.setContent(contentString);
 						infoWindow.open(map, this);
 					});
+				}
+				function toggleBounce() {
+					if (marker.getAnimation() !== null) {
+					marker.setAnimation(null);
+					} else {
+					marker.setAnimation(google.maps.Animation.BOUNCE);
+					}
 				}
 
 			}			
@@ -276,7 +292,7 @@
 	<section class="offer section-wrapper">
 		<div class="container">
 			<h2 class="section-title">
-				Our Blazzing offers
+				Boogle of: New York
 			</h2>
 			<p class="section-subtitle">
 				Lorem Ipsum is simply dummy text of the industry.
