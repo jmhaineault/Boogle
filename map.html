@@ -1,8 +1,62 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        
-    </body>
+<head>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var pointMap = { map: null }
+
+$(function () {
+    pointMap.init('#map_canvas', new google.maps.LatLng(0, 0), 2);
+    pointMap.placeMarkers('collection.js');
+});
+
+pointMap.init = function (selector, latLng, zoom) {
+    var myOptions = {
+        zoom: zoom,
+        center: latLng,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    this.map = new google.maps.Map($(selector)[0], myOptions);
+}
+  pointMap.placeMarkers = function (filename) {
+        $.getJSON(filename, function (data) {
+            for (var x = 0; x < data.length; x++) {
+                var location = data[x];
+
+                var point = new google.maps.LatLng(parseFloat(location.lat), parseFloat(location.lng));
+                var marker = new google.maps.Marker({
+                    position: point,
+                    map: pointMap.map,
+                    title: location.title
+                });
+
+                var popupContent = '<div id="locationContent">' +
+                                        '<div>' + location.category + '</div>' +
+                                        '<div>' + location.title + '</div>' +
+                                        '<div>' + location.description + '</div>' +
+                                        '<div><a href="' + location.pageLink + '">See This Story >></a></div>' +
+                                        '<div><img width="250" src="' + location.imageurl + '" /></div>' +
+                                    '</div>';
+
+                createInfoWindow(marker, popupContent);
+            }
+
+        });
+    }
+
+    var infoWindow = new google.maps.InfoWindow();
+    function createInfoWindow(marker, popupContent) {
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.setContent(popupContent);
+            infoWindow.open(pointMap.map, this);
+        });
+    }
+</script>
+</head>
+<body>
+    <div id="map_canvas"></div>
+
+</body>
 </html>

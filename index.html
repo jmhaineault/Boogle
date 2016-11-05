@@ -139,7 +139,7 @@
 
 				});
 				var locations = [];
-				var contentString = "";
+				
 				locations.push({name:"Las Vegas",latlng: new google.maps.LatLng(36.255123,-115.2383485)});
 				locations.push({name:"California",latlng: new google.maps.LatLng(36.778261,-119.417924)});
 				for(var i = 0; i<locations.length; i++){
@@ -148,7 +148,7 @@
 						map:map,
 						title: locations[i].name
 					});
-					contentString = '<div id="content">'+
+					var contentString = '<div id="'+locations[i].name+'s">'+
 					'<div id="siteNotice">'+
 					'</div>'+
 					'<h1 id="firstHeading" class="firstHeading">'+ locations[i].name +'</h1>'+
@@ -158,21 +158,18 @@
 					' elements in the locations array</p>'+
 					'</div>'+
 					'</div>';
-
-					var infowindow = new google.maps.InfoWindow({
-						content: contentString
-					});
+					
+					 createInfoWindow(marker, contentString);
+					 
 				}
 				
-
-					/*var marker = new google.maps.Marker({
-						position: uluru,
-						map: map,
-						title: 'Uluru (Ayers Rock)'
-					});*/
-					marker.addListener('click', function() {
-						infowindow.open(map, marker);
+				var infoWindow = new google.maps.InfoWindow();
+				function createInfoWindow(marker, contentString) {
+					google.maps.event.addListener(marker, 'click', function () {
+						infoWindow.setContent(contentString);
+						infoWindow.open(map, this);
 					});
+				}
 
 			}
 			/*google.maps.event.addListener(window,"bounds_changed",function(){
