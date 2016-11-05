@@ -3,7 +3,7 @@
 ==================================================*/
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
-
+/*#de0b28*/
 body
 {
 	font-family: 'Roboto', 'Open-Sans', sans-serif;
@@ -63,13 +63,13 @@ p:hover{
 	cursor: default;
 }
 .navbar-toggle {
-    background-color: #de0b28;
-    border: 1px solid #de0b28;
+    background-color: #33CC99;
+    border: 1px solid #33CC99;
     border-radius: 0;
     transition: all .4s ease-in-out;
 }
 .navbar-default .navbar-toggle {
-    border-color: #de0b28;
+    border-color: #33CC99;
 }
 .navbar-default .navbar-toggle .icon-bar{
 	background: #fff;
@@ -78,10 +78,10 @@ p:hover{
 	background: #fff;
 }
 .navbar-toggle:hover .icon-bar, .navbar-toggle:focus .icon-bar {
-    background-color: #de0b28;
+    background-color: #33CC99;
 }
 .form-control:focus {
-    border-color: #de0b28;
+    border-color: #33CC99;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -92,7 +92,7 @@ p:hover{
 			/*navbar*/
 .navbar-default .navbar-brand{
 	border: 1px solid transparent;
-	color: #de0b28;
+	color: #33CC99;
 	font-size: 33px;
 	padding: 10px 0px;
 	height: auto;
@@ -104,20 +104,20 @@ ul.nav.navbar-nav.navbar-right{
 	margin-top: 10px;
 }
 .navbar-default .navbar-brand span{
-	color: #de0b28;
+	color: #33CC99;
 }
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
-	color: #de0b28;
+	color: #33CC99;
 }
 .navbar-default {
-    background-color: rgba(255,255,255,.7); /*este es el mero fondo*/
+    background-color: rgba(0,0,0,.5); /*este es el mero fondo*/
     border-color: transparent;
     padding: 5px 0px;
     border-radius: 0;
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav>li>a{
-	color: #de0b28;
+	color: white;
     padding-right: 20px;
     padding-left: 20px;
     border: 1px solid transparent;
@@ -127,11 +127,11 @@ ul.nav.navbar-nav.navbar-right{
     transition: all .4s ease-in-out;
 }
 .navbar-default .navbar-nav>li>a:hover{
-	color: #de0b28;
+	color: #33CC99;
 }
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
 	color: white;
-	background: #de0b28;
+	background: #33CC99;
 }
 .navbar-nav>li>a {
     padding-top: 8px;
@@ -140,7 +140,7 @@ ul.nav.navbar-nav.navbar-right{
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
     background-color: transparent;
     color: white;
-    background: #de0b28;
+    background: #33CC99;
 }
 		/*Home*/
 .flexslider{
@@ -211,8 +211,8 @@ ul.nav.navbar-nav.navbar-right{
 	border-right: 0px;
 }
 .custom-button{
-	border-color: black;
-	background: black;
+	border-color: #33CC99;
+	background: #33CC99;
 	color: white;
 	width: 100%;
 	text-align: center;
@@ -221,8 +221,8 @@ ul.nav.navbar-nav.navbar-right{
 	transition: all .4s ease-in-out;
 }
 .custom-button:hover{
-	background: #de0b28;
-	border-color: #de0b28;
+	background: black;
+	border-color: black;
 	color: #fff;
 }
 .tour .input-group{
