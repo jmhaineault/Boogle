@@ -63,13 +63,13 @@ p:hover{
 	cursor: default;
 }
 .navbar-toggle {
-    background-color: #6666CC;;
-    border: 1px solid #6666CC;;
+    background-color: #de0b28;
+    border: 1px solid #de0b28;
     border-radius: 0;
     transition: all .4s ease-in-out;
 }
 .navbar-default .navbar-toggle {
-    border-color: #6666CC;;
+    border-color: #de0b28;
 }
 .navbar-default .navbar-toggle .icon-bar{
 	background: #fff;
@@ -78,10 +78,10 @@ p:hover{
 	background: #fff;
 }
 .navbar-toggle:hover .icon-bar, .navbar-toggle:focus .icon-bar {
-    background-color: #6666CC;;
+    background-color: #de0b28;
 }
 .form-control:focus {
-    border-color: #6666CC;;
+    border-color: #de0b28;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -92,7 +92,7 @@ p:hover{
 			/*navbar*/
 .navbar-default .navbar-brand{
 	border: 1px solid transparent;
-	color: #6666CC;
+	color: #de0b28;
 	font-size: 33px;
 	padding: 10px 0px;
 	height: auto;
@@ -104,34 +104,34 @@ ul.nav.navbar-nav.navbar-right{
 	margin-top: 10px;
 }
 .navbar-default .navbar-brand span{
-	color: #583b54;
+	color: #de0b28;
 }
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
-	color: #6666CC;
+	color: #de0b28;
 }
 .navbar-default {
-    background-color: #fff;
+    background-color: rgba(255,255,255,.7); /*este es el mero fondo*/
     border-color: transparent;
     padding: 5px 0px;
     border-radius: 0;
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav>li>a{
-	color: #6666CC;
+	color: #de0b28;
     padding-right: 20px;
     padding-left: 20px;
     border: 1px solid transparent;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: 1px;
     transition: all .4s ease-in-out;
 }
 .navbar-default .navbar-nav>li>a:hover{
-	color: #6666CC;;
+	color: #de0b28;
 }
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
-	color: #6666CC;
-	background: #e8f9ff;
+	color: white;
+	background: #de0b28;
 }
 .navbar-nav>li>a {
     padding-top: 8px;
@@ -140,7 +140,7 @@ ul.nav.navbar-nav.navbar-right{
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
     background-color: transparent;
     color: white;
-    background: #6666CC;
+    background: #de0b28;
 }
 		/*Home*/
 .flexslider{
@@ -170,8 +170,7 @@ ul.nav.navbar-nav.navbar-right{
 .intro{
 	display: table;
 	text-align: center;
-	width: 100%;
-	height: 100vh;
+	
 }
 .header-title{
 	font-size: 34px;
@@ -212,9 +211,9 @@ ul.nav.navbar-nav.navbar-right{
 	border-right: 0px;
 }
 .custom-button{
-	border-color: #6666CC;
-	background: #6666CC;
-	color: #fff;
+	border-color: black;
+	background: black;
+	color: white;
 	width: 100%;
 	text-align: center;
 	padding: 10px;
@@ -222,8 +221,8 @@ ul.nav.navbar-nav.navbar-right{
 	transition: all .4s ease-in-out;
 }
 .custom-button:hover{
-	background: #9999FF;
-	border-color: #9999FF;
+	background: #de0b28;
+	border-color: #de0b28;
 	color: #fff;
 }
 .tour .input-group{
