@@ -7,6 +7,19 @@
 /*************************************************
 		CUSTOME CSS
 *************************************************/
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px; 
+  color:#ccc;
+}
 #map_canvas{ 
 	width: 100%; 
 	height: 70%;
@@ -231,9 +244,6 @@ ul.nav.navbar-nav.navbar-right{
 	background: #fff;
 	color: #583b54;
 }
-/*=================================================
-||				4. Find a Tour
-==================================================*/
 .form-dropdown{
 	margin-top: -25px;
 }
@@ -254,8 +264,8 @@ ul.nav.navbar-nav.navbar-right{
 	transition: all .4s ease-in-out;
 }
 .custom-button:hover{
-	background: black;
-	border-color: black;
+	background: #FFD700;
+	border-color: #FFD700;
 	color: #fff;
 }
 .tour .input-group{
@@ -264,9 +274,6 @@ ul.nav.navbar-nav.navbar-right{
 .searchButton{
 	margin-top: 2%;
 }
-/*=================================================
-||				5. Our Blazzing offers
-==================================================*/
 .offer{
 	color: black;
 	text-align: center;
@@ -297,11 +304,6 @@ ul.nav.navbar-nav.navbar-right{
 .offer-item:hover{
 	box-shadow: 0 0 30px rgba(125, 125, 125, 0.1);
 }
-
-
-/*=================================================
-||				6. Top place to visit
-==================================================*/
 .visit-item{
 	padding: 0px 15px;
 	transition: all .4s ease-in-out;
@@ -315,9 +317,6 @@ ul.nav.navbar-nav.navbar-right{
 	color: #33CC99;
 	font-size: 25px;
 }
-/*=================================================
-||				7. offer-cta
-==================================================*/
 .offer-cta{
 	background: url("../images/cta-1.png") right center;
 	background-size: cover;
@@ -407,18 +406,12 @@ ul.nav.navbar-nav.navbar-right{
 .owl-theme .owl-dots .owl-dot span{
 	background: #f1f1f1;
 }
-/*=================================================
-||				10. Subscribe
-==================================================*/
 .subscribe{
 	text-align: center !important;
 }
 .brand-logo{
 	font-size: 33px;
 	color: #33CC99;
-}
-a.brand-logo span{
-	color: #583b54;
 }
 a.brand-logo:focus, a.brand-logo:hover{
 	color: #33CC99;
