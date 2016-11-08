@@ -11,6 +11,7 @@
     $keyword = $_GET['keyword'];
     $city = $_GET['city'];
     $rating = $_GET['rating'];
+    $sort = $_GET['sort'];
 
     // Set the mongodb host and database names
     $dbhost = 'localhost';
@@ -27,24 +28,30 @@
     else{
         $rating = doubleval($rating);
     }
+    if(empty($sort)){
+        $sort = -1;
+    }
+    else{
+        $sort = intval($sort);
+    }
 
     // Set content type in header for easy viewing in browser
     header("Content-type: application/json");
 
     // Perform the search query
-    if(isset($city, $keyword, $rating)){
-        search($db, $keyword, $city, $rating);
+    if(isset($city, $keyword, $rating, $sort)){
+        search($db, $keyword, $city, $rating, $sort);
     }
     else{
         echo "Missing required parameter(s)";
     }
 
     // Performs the mongodb query and returns results in json encoded format
-    function search($db, $keyword, $city, $rating){
+    function search($db, $keyword, $city, $rating, $sort){
         $query = array('city' => new MongoRegex('/.*'.$city.'.*/i'),
                 'categories' => new MongoRegex('/.*'.$keyword.'.*/i'),
                 'stars' => array('$gte' => $rating));
-        $result = $db->business->find($query);
+        $result = $db->business->find($query)->sort(array('stars' => $sort));
         echo json_encode(iterator_to_array($result, false));
     }
 ?>
