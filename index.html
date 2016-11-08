@@ -16,6 +16,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$(".no-result").hide();
 				// jQuery function to perform search query
 				$("#search").click(function(){
 					// Get query parameters
@@ -27,15 +28,29 @@
 					// Perform AJAX call to query.php and populate results table
 					$.getJSON(query, function(result){
 						console.log(result);
-						$("#results").html("");                    
+						$("#results > tbody").text("");
 						if (! jQuery.isEmptyObject(result)){
-							$("#results").append("<thead><tr><th>Name</th><th>Address</th><th>Rating</th></tr></thead>");
+							$(".no-result").hide();
+							$("#result-header").text(keyword);
 							$.each(result, function(key, val){
-								$("#results").append("<tr><td>" + val.name + "</td><td>" + val.full_address + "</td><td>" + val.stars + "</td><td>");
+								var stars = "";
+								for (i = 0; i < val.stars; i++){
+									stars += '<i class="fa fa-star" aria-hidden="true"></i>';
+								}
+								$("#results > tbody").append('<tr><td><h3 style="color: #222">' + val.name + '</h3>');
+								$("#results > tbody").append("<small><a>" + val.review_count + " Reviews</a></small>");
+								$("#results > tbody").append('<div class="starsRaiting" style="font-family: ' + "'FontAwesome'" + ', Helvetica; color:#FFD700;">' + stars + '</div>');
+								$("#results > tbody").append('<div class="pull-left" style="font-size: 18px; color:#33CC99">\
+														<p style="font-size: 18px; color:#33CC99">\
+														<i class="fa fa-map-marker" aria-hidden="true"></i> ' + val.full_address + '</p></div>');
+								$("#results > tbody").append('<div class="pull-right" style="font-size: 18px; color:#33CC99">\
+														<i class="fa fa-street-view" aria-hidden="true"></i>\
+														<i class="fa fa-file-image-o" aria-hidden="true"></i>\
+														<i class="fa fa-twitter" aria-hidden="true"></i></div></td></tr>');
 							});
 						}
 						else{
-							$("#results").append("<center><h3>No results found</h3></center>");
+							$(".no-result").show();
 						}
 					});
 				});
@@ -134,16 +149,16 @@
 				<input type="text" class="search form-control border-radius " placeholder="Search in results">
 			</div>
 			<span class="counter"></span>
-			 <table class="table  table-hover results">
+			 <table id="results" class="table  table-hover results">
 				<thead style="color:#33CC99">
-				<tr>
-					<th><h1>FOOD</h1></th>
-				</tr>
-				<tr class="warning no-result">
-					<td ><i class="fa fa-warning"></i> No result</td>
-				</tr>
+					<tr>
+						<th><h1 id="result-header"></h1></th>
+					</tr>
 				</thead>
 				<tbody>
+					<tr class="warning no-result">
+						<td ><i class="fa fa-warning"></i> No result</td>
+					</tr>
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">Clementine’s Naughty & Nice Creamery</h3>
