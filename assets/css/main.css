@@ -8,10 +8,23 @@
 		CUSTOME CSS
 *************************************************/
 .results tr[visible='false'],
+.reviewR{
+	cursor: pointer;
+	color: dodgerblue;
+}
 .no-result{
   display:none;
 }
+.closeR{
+	cursor: pointer;
+}
+.reviewstable{
+	border-style: solid;
+	border-width: 3px;
+	border-color: #33CC99;
+	background-color:rgba(0,0,0,.7);
 
+}
 .results tr[visible='true']{
   display:table-row;
 }
