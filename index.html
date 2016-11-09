@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
 		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="stylesheet" href="assets/css/login.css">
+		<link href="http://emojicss.com/emoji.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript">
@@ -162,7 +163,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">Clementine’s Naughty & Nice Creamery</h3>
-							<small><a>239 Reviews</a></small>
+							<small><a class="reviewResults">239 Reviews</a></small>
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">								
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -186,7 +187,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">The Cakery</h3>
-							<small><a>150 Reviews</a></small>
+							<small><a class="reviewResults">150 Reviews</a></small>
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -207,7 +208,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">Pint Size Bakery & Coffee</h3>
-							<small><a>111 Reviews</a></small>							
+							<small><a class="reviewResults">111 Reviews</a></small>							
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -232,7 +233,7 @@
 			<br><br><br><br>
 			<div class="reviewstable">
 				<p class="pull-right " style="color:#33CC99;margin-right: 1%;">X</p>
-				<table class="table table-hover ">			
+				<table class="table">			
 					<thead>
 							
 					<tr>
@@ -243,13 +244,17 @@
 							
 						</th>
 						<th>
-							<h3 class="" style="color: #222" >The Cakery</h3>						
+							<h3 class="" style="color:#33CC99;" >The Cakery</h3>						
+						</th>
+						<th>
+													
 						</th>
 					</tr>
 					</thead>
 					<tbody style="color: black;">
-					<tr>
-						<td><i class="fa fa-star" aria-hidden="true"></i>
+					<tr style="color: white;">
+						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
+							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
@@ -257,19 +262,51 @@
 						</td>
 						<td>John Doe</td>
 						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
+						<td style="color:red; font-size:20px;">
+							<i class="em em-sunglasses"></i>
+						</td>
 					</tr>
-					<tr>
-						<td><i class="fa fa-star" aria-hidden="true"></i>
+					<tr style="color: white;">
+						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
+							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
 						</td>
 						<td>Mary Moe</td>
 						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
+						<td style="color:#FFD700; font-size:20px;">
+							<i class="em em-heart"></i>
+						</td>
 					</tr>
-					<tr>
-						<td><i class="fa fa-star" aria-hidden="true"></i></td>
+					<tr style="color: white;">
+						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</td>
 						<td>July Dooley</td>
 						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
+						<td style="color:#8000ff; font-size:20px;">
+							<i class="em em-joy"></i>
+						</td>
+					</tr>
+					<tr style="color: white;">
+						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</td>
+						<td>Pepe Ramirez</td>
+						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
+						<td style="color:#0080ff; font-size:20px;">
+							<i class="em em-ok_hand"></i>
+						</td>
+					</tr>
+					<tr style="color: white;">
+						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</td>
+						<td>Jose Vargas</td>
+						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
+						<td style="color:#0080ff; font-size:20px;">
+							<i class="em em---1"></i>
+						</td>
 					</tr>
 					</tbody>
 				</table>
