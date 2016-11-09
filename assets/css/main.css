@@ -8,8 +8,15 @@
 		CUSTOME CSS
 *************************************************/
 .results tr[visible='false'],
+.reviewR{
+	cursor: pointer;
+	color: dodgerblue;
+}
 .no-result{
   display:none;
+}
+.closeR{
+	cursor: pointer;
 }
 .reviewstable{
 	border-style: solid;

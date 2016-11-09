@@ -163,7 +163,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">Clementine’s Naughty & Nice Creamery</h3>
-							<small><a class="reviewResults">239 Reviews</a></small>
+							<small class="reviewR">239 Reviews</small>
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">								
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -187,7 +187,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">The Cakery</h3>
-							<small><a class="reviewResults">150 Reviews</a></small>
+							<small class="reviewR">150 Reviews</small>
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -208,7 +208,7 @@
 					<tr>
 						<td>
 							<h3 class="" style="color: #222">Pint Size Bakery & Coffee</h3>
-							<small><a class="reviewResults">111 Reviews</a></small>							
+							<small class="reviewR">111 Reviews</small>							
 							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -232,7 +232,8 @@
 		<div class="col-sm-5 ">
 			<br><br><br><br>
 			<div class="reviewstable">
-				<p class="pull-right " style="color:#33CC99;margin-right: 1%;">X</p>
+				
+				<i class="fa fa-times pull-right closeR" style="color:#33CC99;margin-right: 1%;" aria-hidden="true"></i>
 				<table class="table">			
 					<thead>
 							
@@ -465,6 +466,15 @@
 			</div>
 		</div>		
 	</footer>
+	<script>		
+		$(".reviewstable").hide();							
+		$(".reviewR").click(function(){
+			$(".reviewstable").toggle(500);
+		});
+		$(".closeR").click(function(){
+			$(".reviewstable").hide(500);
+		});				
+	</script>
 	<script src="assets/js/jquery-1.11.2.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
