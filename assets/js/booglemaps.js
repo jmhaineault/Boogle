@@ -1,10 +1,17 @@
-function initMap() {
+function initMap(locations) {
     var uluru = {
         lat: 36.25512, lng: -115.2383485
     };
+    if(locations != null){
+        var center = locations[0].latlng;
+    }
+    else{
+        var center = uluru;
+    }
+    
     var map = new google.maps.Map(document.getElementById('map_canvas'), {
         zoom: 7,
-        center: uluru,
+        center: center,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#f8f8f8'}]},//tierra #
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -86,10 +93,11 @@ function initMap() {
             }
         ]
     });
-    var locations = [];
-    locations.push({name:"California",latlng: new google.maps.LatLng(36.778261,-119.417924)});
-    locations.push({name:"Las Vegas",latlng: new google.maps.LatLng(36.255123,-115.2383485)});
+    //var locations = [];
+    //locations.push({name:"California",latlng: new google.maps.LatLng(36.778261,-119.417924)});
+    //locations.push({name:"Las Vegas",latlng: new google.maps.LatLng(36.255123,-115.2383485)});
     
+    if( locations != null){
     for(var i = 0; i<locations.length; i++){
         var marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
@@ -105,12 +113,11 @@ function initMap() {
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">'+ locations[i].name +'</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>'+ locations[i].name +'</b>'+
-        '<p>'+ locations.length +
-        ' elements in the locations array</p>'+
+        '<p><b>'+ locations[i].address +'</b>'+
         '</div>'+
         '</div>';					
             createInfoWindow(marker, contentString);					 
+    }
     }				
     var infoWindow = new google.maps.InfoWindow();
     function createInfoWindow(marker, contentString) {
@@ -120,4 +127,4 @@ function initMap() {
         });
     }			
 }			
-google.maps.event.addDomListener(window, "load", initMap);		
+google.maps.event.addDomListener(window, "load", initMap(null));		
