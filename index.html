@@ -18,6 +18,7 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$(".no-result").hide();
+				$(".reviewstable").hide();							
 				// jQuery function to perform search query
 				$("#search").click(function(){
 					// Get query parameters
@@ -27,27 +28,64 @@
 					// Build URL to pass to query.php
 					var query = "query.php?city=" + city + "&keyword=" + keyword + "&rating=" + rating;
 					// Perform AJAX call to query.php and populate results table
-					$.getJSON(query, function(result){
-						console.log(result);
-						$("#results > tbody").text("");
-						if (! jQuery.isEmptyObject(result)){
+					$.getJSON(query, function(businesses){
+						console.log(businesses);
+						$("#results > tbody").html("");
+						if (! jQuery.isEmptyObject(businesses)){
 							$(".no-result").hide();
-							$("#result-header").text(keyword);
-							$.each(result, function(key, val){
+							$("#result-header").html(keyword);
+							$.each(businesses, function(key, business){
 								var stars = "";
-								for (i = 0; i < val.stars; i++){
+								for (i = 0; i < business.stars; i++){
 									stars += '<i class="fa fa-star" aria-hidden="true"></i>';
 								}
-								$("#results > tbody").append('<tr><td><h3 style="color: #222">' + val.name + '</h3>');
-								$("#results > tbody").append("<small><a>" + val.review_count + " Reviews</a></small>");
+								$("#results > tbody").append('<tr><td><h3 style="color: #222">' + business.name + '</h3>');
+								$("#results > tbody").append('<small data-business-id="' + business.business_id + '" class="reviewR"><a>' + business.review_count + ' Reviews</a></small>');
 								$("#results > tbody").append('<div class="starsRaiting" style="font-family: ' + "'FontAwesome'" + ', Helvetica; color:#FFD700;">' + stars + '</div>');
 								$("#results > tbody").append('<div class="pull-left" style="font-size: 18px; color:#33CC99">\
 														<p style="font-size: 18px; color:#33CC99">\
-														<i class="fa fa-map-marker" aria-hidden="true"></i> ' + val.full_address + '</p></div>');
+														<i class="fa fa-map-marker" aria-hidden="true"></i> ' + business.full_address + '</p></div>');
 								$("#results > tbody").append('<div class="pull-right" style="font-size: 18px; color:#33CC99">\
 														<i class="fa fa-street-view" aria-hidden="true"></i>\
 														<i class="fa fa-file-image-o" aria-hidden="true"></i>\
-														<a href="https://twitter.com/search?q=' + val.name + '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div></td></tr>');
+														<a href="https://twitter.com/search?q=' + business.name + '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div></td></tr>');
+							});
+							$(".reviewR").click(function(){
+								var business_id = $(this).attr("data-business-id");
+								var review_query = 'reviews.php?id=' + business_id;
+								$.getJSON(review_query, function(reviews){
+									console.log(reviews);
+									$(".reviewstable > table > tbody").text("");
+									$("#reviewBusiness").html("Reviews");
+									if (! jQuery.isEmptyObject(reviews)){
+										$.each(reviews, function(key, val){
+											var stars = "";
+											for (i = 0; i < val.stars; i++){
+												stars += '<i class="fa fa-star" aria-hidden="true"></i>';
+											}
+											var funny = val.votes.funny;
+											var useful = val.votes.useful;
+											var cool = val.votes.cool;
+											var votes = "";
+											if(funny > 0){
+												votes += '<i class="em em-joy"></i>' + funny;
+											}
+											if(useful > 0){
+												votes += '<i class="em em-ok_hand"></i>' + useful;
+											}
+											if(cool > 0){
+												votes += '<i class="em em-sunglasses"></i>' + cool;
+											}
+											$(".reviewstable > table > tbody").append('<tr style="color: white;">\
+																				<td style="font-family: ' + "'FontAwesome'" + ', Helvetica; color:#FFD700;">\
+																				' + stars + '</td>\
+																				<td>' + val.date + '<p>' + votes + '</p></td>\
+																				<td>' + val.text + '</td></tr>');
+																				//<td style="color:red; font-size:20px;">' + votes + '</td></tr>');
+										});
+										$(".reviewstable").show();
+									}
+								});
 							});
 						}
 						else{
@@ -245,7 +283,7 @@
 							
 						</th>
 						<th>
-							<h3 class="" style="color:#33CC99;" >The Cakery</h3>						
+							<h3 id="reviewBusiness" style="color:#33CC99;" >The Cakery</h3>						
 						</th>
 						<th>
 													
@@ -253,7 +291,7 @@
 					</tr>
 					</thead>
 					<tbody style="color: black;">
-					<tr style="color: white;">
+					<!--<tr style="color: white;">
 						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
@@ -308,7 +346,7 @@
 						<td style="color:#0080ff; font-size:20px;">
 							<i class="em em---1"></i>
 						</td>
-					</tr>
+					</tr> -->
 					</tbody>
 				</table>
 			</div>	
@@ -467,10 +505,47 @@
 		</div>		
 	</footer>
 	<script>		
-		$(".reviewstable").hide();							
-		$(".reviewR").click(function(){
+		//$(".reviewstable").hide();
+		/*$(".reviewR").click(function(){
+					var business_id = $(this).attr("data-business-id");
+					alert(business_id);
+					/*var query = 'reviews.php?id=' + business_id;
+					$.getJSON(query, function(result){
+						console.log(result);
+						$("#results > tbody").text("");
+						if (! jQuery.isEmptyObject(result)){
+							$.each(result, function(key, val){
+								var stars = "";
+								for (i = 0; i < val.stars; i++){
+									stars += '<i class="fa fa-star" aria-hidden="true"></i>';
+								}
+								$(".reviewstable > tbody").append('<tr style="color: white;">');
+								$(".reviewstable > tbody").append('<td style="font-family: ' + "'FontAwesome'" + ', Helvetica; color:#FFD700;">');
+								$(".reviewstable > tbody").append(stars + '</td>');
+								$(".reviewstable > tbody").append('<td>' + val.date + '</td>');
+								$(".reviewstable > tbody").append('<td>' + val.text + '</td>');
+								$(".reviewstable > tbody").append('td style="color:red; font-size:20px;">');
+								var funny = val.votes.funny;
+								var useful = val.votes.useful;
+								var cool = val.votes.cool;
+								for(i = 0; i < funny; i++){
+									$(".reviewstable > tbody").append('<i class="em em-joy">' + funny + '</i>');
+								}
+								for (i = 0; i < useful; i++){
+									$(".reviewstable > tbody").append('<i class="em em-ok_hand">' + useful + '</i>');
+								}
+								for (i = 0; i < cool; i++){
+									$(".reviewstable > tbody").append('<i class="em em-sunglasses">' + cool + '</i>');
+								}
+								$(".reviewstable > tbody").append('</td></tr>');
+							}
+						}
+					});
+					$(".reviewstable").toggle(500);
+				});*/	
+		/*$(".reviewR").click(function(){
 			$(".reviewstable").toggle(500);
-		});
+		});*/
 		$(".closeR").click(function(){
 			$(".reviewstable").hide(500);
 		});				
