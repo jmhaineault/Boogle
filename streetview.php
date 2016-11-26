@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/login.css">
-        <link href="http://emojicss.com/emoji.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">  
          <style>
           html, body {
@@ -27,38 +26,35 @@
             width: 45%;
           }
         </style>
-        </head>
-        <body>
+    </head>
+    <body>
         <div id="map"></div>
         <div id="pano"></div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRyIx95DIw0i8hWbd9i5R61UVBJTeQhtw&callback=initMap"
-        async defer></script>
+        
         <script type="text/javascript" src="gmaps.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRyIx95DIw0i8hWbd9i5R61UVBJTeQhtw&callback=initMap"
-        async defer></script>
-         <script type="text/javascript" src="gmaps.js"></script>
         <script type="text/javascript">
-        (function initialize() {
-          var map;
-          var latlng = {lat: "<?php echo $lat ?>", lng: "<?php echo $lng ?>"};
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: latlng,
-            zoom: 14
-          });
-          var panorama = new google.maps.StreetViewPanorama(
-              document.getElementById('pano'), {
-                position: latlng,
-                pov: {
-                  heading: 34,
-                  pitch: 10
-                }
-              });
-          map.setStreetView(panorama);
-        };
+            var initialize;
+            initialize = function() {
+            var map;
+            var latlng = {lat: Number(<?= $_GET['latitude'] ?>), lng: Number(<?= $_GET['longitude'] ?>)};
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: latlng,
+                    zoom: 14
+                });
+            var panorama = new google.maps.StreetViewPanorama(
+                document.getElementById('pano'), {
+                    position: latlng,
+                    pov: {
+                      heading: 34,
+                      pitch: 10
+                    }
+            });
+            map.setStreetView(panorama);
+            }
         </script>
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRyIx95DIw0i8hWbd9i5R61UVBJTeQhtw&callback=initialize">
         </script>
-        </body>
+    </body>
 </html>
