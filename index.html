@@ -12,11 +12,14 @@
 		<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
 		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="stylesheet" href="assets/css/login.css">
-		<link href="http://emojicss.com/emoji.css" rel="stylesheet">
+		<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$(".closeR").click(function(){
+					$(".reviewstable").hide(500);
+				});
 				$(".no-result").hide();
 				$(".reviewstable").hide();							
 				// jQuery function to perform search query
@@ -55,8 +58,8 @@
 														<p style="font-size: 18px; color:#33CC99">\
 														<i class="fa fa-map-marker" aria-hidden="true"></i> ' + business.full_address + '</p></div>');
 								$("#results > tbody").append('<div class="pull-right" style="font-size: 18px; color:#33CC99">\
-														<i class="fa fa-street-view" aria-hidden="true"></i>\
-														<i class="fa fa-file-image-o" aria-hidden="true"></i>\
+														<a href="streetview.php?latitude=' + lat + '&longitude=' + lng + '" target="_blank"><i class="fa fa-street-view" aria-hidden="true"></i></a>\
+														<a href="https://www.google.com/images?q=' + business.name + '" target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>\
 														<a href="https://twitter.com/search?q=' + business.name + '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div></td></tr>');
 							});
 							initMap(locations,city);
@@ -194,11 +197,7 @@
 </div> <!-- /#header -->
 	<section class="section-wrapper row" style="margin-top: 1%;">
 		<div class="col-sm-5 col-sm-offset-2 myTable" style="margin-top: 5%;">
-			<div class="form-group">
-				<input type="text" class="search form-control border-radius " placeholder="Search in results">
-			</div>
-			<span class="counter"></span>
-			 <table id="results" class="table  table-hover results">
+			<table id="results" class="table  table-hover results">
 				<thead style="color:#33CC99">
 					<tr>
 						<th><h1 id="result-header"></h1></th>
@@ -208,72 +207,6 @@
 					<tr class="warning no-result">
 						<td style="color:#33CC99"><i class="fa fa-warning" ></i> No result</td>
 					</tr>
-					<tr>
-						<td>
-							<h3 class="" style="color: #222">Clementine’s Naughty & Nice Creamery</h3>
-							<small class="reviewR">239 Reviews</small>
-							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">								
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-							</div>
-							<div class="pull-left" style="font-size: 18px; color:#33CC99">								 
-								 <p style="font-size: 18px; color:#33CC99">
-									 <i class="fa fa-map-marker" aria-hidden="true"></i> 5708 Oakland Ave Saint Louis, MO 63110
-								</p>
-							</div>
-							<div class="pull-right" style="font-size: 18px; color:#33CC99">
-								<i class="fa fa-street-view" aria-hidden="true"></i>
-								<i class="fa fa-file-image-o" aria-hidden="true"></i>
-								<i class="fa fa-twitter" aria-hidden="true"></i>
-							</div>
-							
-						</td>				
-					</tr>
-					<tr>
-						<td>
-							<h3 class="" style="color: #222">The Cakery</h3>
-							<small class="reviewR">150 Reviews</small>
-							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-							</div>
-							<div class="pull-left" style="font-size: 18px; color:#33CC99">								 
-								 <p style="font-size: 18px; color:#33CC99">
-									 <i class="fa fa-map-marker" aria-hidden="true"></i> 1637 S 18th St Saint Louis, MO 63104
-								</p>
-							</div>
-							<div class="pull-right" style="font-size: 18px; color:#33CC99">
-								<i class="fa fa-street-view" aria-hidden="true"></i>
-								<i class="fa fa-file-image-o" aria-hidden="true"></i>
-								<i class="fa fa-twitter" aria-hidden="true"></i>
-							</div>
-						</td>				
-					</tr>
-					<tr>
-						<td>
-							<h3 class="" style="color: #222">Pint Size Bakery & Coffee</h3>
-							<small class="reviewR">111 Reviews</small>							
-							<div class="starsRaiting " style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-							</div>
-							<div class="pull-left" style="font-size: 18px; color:#33CC99">								 
-								 <p style="font-size: 18px; color:#33CC99">
-									 <i class="fa fa-map-marker" aria-hidden="true"></i> 1420 Tamm Ave Saint Louis, MO 63139
-								</p>
-							</div>
-							<div class="pull-right" style="font-size: 18px; color:#33CC99">
-								<i class="fa fa-street-view" aria-hidden="true"></i>
-								<i class="fa fa-file-image-o" aria-hidden="true"></i>
-								<i class="fa fa-twitter" aria-hidden="true"></i>
-							</div>
-						</td>				
-					</tr>				
 				</tbody>
 			</table>
 		</div> <!-- /.container -->
@@ -301,201 +234,14 @@
 					</tr>
 					</thead>
 					<tbody style="color: black;">
-					<!--<tr style="color: white;">
-						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</td>
-						<td>John Doe</td>
-						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
-						<td style="color:red; font-size:20px;">
-							<i class="em em-sunglasses"></i>
-						</td>
-					</tr>
-					<tr style="color: white;">
-						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</td>
-						<td>Mary Moe</td>
-						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
-						<td style="color:#FFD700; font-size:20px;">
-							<i class="em em-heart"></i>
-						</td>
-					</tr>
-					<tr style="color: white;">
-						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</td>
-						<td>July Dooley</td>
-						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
-						<td style="color:#8000ff; font-size:20px;">
-							<i class="em em-joy"></i>
-						</td>
-					</tr>
-					<tr style="color: white;">
-						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</td>
-						<td>Pepe Ramirez</td>
-						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
-						<td style="color:#0080ff; font-size:20px;">
-							<i class="em em-ok_hand"></i>
-						</td>
-					</tr>
-					<tr style="color: white;">
-						<td style="font-family: 'FontAwesome', Helvetica; color:#FFD700;">
-							<i class="fa fa-star" aria-hidden="true"></i>
-						</td>
-						<td>Jose Vargas</td>
-						<td>Duis placerat ultrices pulvinar. Nullam non libero id velit consectetur porttitor. Vestibulum fringilla euismod eros eu euismod. In sit amet elit pharetra, ultrices turpis quis, gravida turpis. Sed sed aliquet est, ut egestas urna. Maecenas mollis laoreet ornare. Sed sit amet aliquam metus.</td>
-						<td style="color:#0080ff; font-size:20px;">
-							<i class="em em---1"></i>
-						</td>
-					</tr> -->
 					</tbody>
 				</table>
 			</div>	
 		</div>
 	</section> <!-- /.offer -->
-	<!-- Top place to visit -->	
-	<section class="additional-services section-wrapper">
-		<div class="container">
-			<h2 class="section-title">
-				TOP REVIEWED RESTAURANTS IN LOS ANGELES
-			</h2>
-	</section> <!-- /.Additional-services -->
-	<div class="section-wrapper sponsor">
-		<div class="container">
-			<div class="owl-carousel sponsor-carousel">
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-				<div class="item">
-					<a href="#">
-						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
-					</a>
-				</div>
-			</div> <!-- /.owl-carousel -->
-		</div> <!-- /.container -->
-	</div> <!-- /.sponsor -->
-
 	<div class="subscribe section-wrapper">
 		<a class="brand-logo" href="index.html" title="HOME"><img src="assets/images/boogleLogoW.png"></a>
-		<p class="subscribe-now">
-			Subscribe to our Newsletter
-		</p>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-					<div class="input-group">
-						<input type="email" class="form-control border-radius" placeholder="Email address">
-						<span class="input-group-btn">
-							<button class="btn btn-default border-radius custom-sub-btn" type="button">DONE</button>
-						</span>
-					</div><!-- /input-group -->
-				</div>
-			</div>
-		</div>	
-		<ul class="social-icon">
-			<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-			<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-		</ul>
 	</div> <!-- /.subscribe -->
-	<div id="login">		
-			<form>
-				<input type="login" value="" placeholder="type username here" />
-				<input type="password" value="" placeholder="type your password" />				
-			    <button type="submit" class="btn btn-default border-radius custom-button buttonsLogIn">Log In</button>				
-			</form>	
-	</div>
-	
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -514,56 +260,9 @@
 			</div>
 		</div>		
 	</footer>
-	<script>		
-		//$(".reviewstable").hide();
-		/*$(".reviewR").click(function(){
-					var business_id = $(this).attr("data-business-id");
-					alert(business_id);
-					/*var query = 'reviews.php?id=' + business_id;
-					$.getJSON(query, function(result){
-						console.log(result);
-						$("#results > tbody").text("");
-						if (! jQuery.isEmptyObject(result)){
-							$.each(result, function(key, val){
-								var stars = "";
-								for (i = 0; i < val.stars; i++){
-									stars += '<i class="fa fa-star" aria-hidden="true"></i>';
-								}
-								$(".reviewstable > tbody").append('<tr style="color: white;">');
-								$(".reviewstable > tbody").append('<td style="font-family: ' + "'FontAwesome'" + ', Helvetica; color:#FFD700;">');
-								$(".reviewstable > tbody").append(stars + '</td>');
-								$(".reviewstable > tbody").append('<td>' + val.date + '</td>');
-								$(".reviewstable > tbody").append('<td>' + val.text + '</td>');
-								$(".reviewstable > tbody").append('td style="color:red; font-size:20px;">');
-								var funny = val.votes.funny;
-								var useful = val.votes.useful;
-								var cool = val.votes.cool;
-								for(i = 0; i < funny; i++){
-									$(".reviewstable > tbody").append('<i class="em em-joy">' + funny + '</i>');
-								}
-								for (i = 0; i < useful; i++){
-									$(".reviewstable > tbody").append('<i class="em em-ok_hand">' + useful + '</i>');
-								}
-								for (i = 0; i < cool; i++){
-									$(".reviewstable > tbody").append('<i class="em em-sunglasses">' + cool + '</i>');
-								}
-								$(".reviewstable > tbody").append('</td></tr>');
-							}
-						}
-					});
-					$(".reviewstable").toggle(500);
-				});*/	
-		/*$(".reviewR").click(function(){
-			$(".reviewstable").toggle(500);
-		});*/
-		$(".closeR").click(function(){
-			$(".reviewstable").hide(500);
-		});				
-	</script>
 	<script src="assets/js/jquery-1.11.2.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/contact.js"></script>
 	<script src="assets/js/jquery.flexslider.js"></script>
 	<script src="assets/js/script.js"></script>
 	<script src="assets/js/booglemaps.js"></script>
