@@ -32,7 +32,6 @@
 					var query = "query.php?city=" + city + "&keyword=" + keyword + "&rating=" + rating;
 					// Perform AJAX call to query.php and populate results table
 					$.getJSON(query, function(businesses){
-						console.log(businesses);
 						$("#results > tbody").html("");
 						if (! jQuery.isEmptyObject(businesses)){
 							$(".no-result").hide();
