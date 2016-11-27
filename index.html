@@ -15,6 +15,12 @@
 		<link href="http://emojicss.com/emoji.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<<<<<<< HEAD
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRyIx95DIw0i8hWbd9i5R61UVBJTeQhtw&callback=initMap"
+    	async defer></script>
+		<script type="text/javascript" src="gmaps.js"></script>
+=======
+>>>>>>> refs/remotes/origin/master
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$(".no-result").hide();
@@ -29,7 +35,11 @@
 					var query = "query.php?city=" + city + "&keyword=" + keyword + "&rating=" + rating;
 					// Perform AJAX call to query.php and populate results table
 					$.getJSON(query, function(businesses){
+<<<<<<< HEAD
+
+=======
 						console.log(businesses);
+>>>>>>> refs/remotes/origin/master
 						$("#results > tbody").html("");
 						if (! jQuery.isEmptyObject(businesses)){
 							$(".no-result").hide();
@@ -38,6 +48,10 @@
 							$.each(businesses, function(key, business){
 								var lat = business.latitude;
 								var lng = business.longitude;
+<<<<<<< HEAD
+								
+=======
+>>>>>>> refs/remotes/origin/master
 								locations.push({
 									name:business.name,
 									latlng: new google.maps.LatLng(lat,lng),
@@ -45,6 +59,10 @@
 									stars:business.stars
 								});
 								var stars = "";
+<<<<<<< HEAD
+								var streetview_query = 'streetview.php?latitude=' + lat + '&longitude=' + lng;
+=======
+>>>>>>> refs/remotes/origin/master
 								for (i = 0; i < business.stars; i++){
 									stars += '<i class="fa fa-star" aria-hidden="true"></i>';
 								}
@@ -55,7 +73,11 @@
 														<p style="font-size: 18px; color:#33CC99">\
 														<i class="fa fa-map-marker" aria-hidden="true"></i> ' + business.full_address + '</p></div>');
 								$("#results > tbody").append('<div class="pull-right" style="font-size: 18px; color:#33CC99">\
+<<<<<<< HEAD
+														<a href='+ streetview_query +'><i class="fa fa-street-view" aria-hidden="true"></i> </a>\
+=======
 														<i class="fa fa-street-view" aria-hidden="true"></i>\
+>>>>>>> refs/remotes/origin/master
 														<i class="fa fa-file-image-o" aria-hidden="true"></i>\
 														<a href="https://twitter.com/search?q=' + business.name + '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div></td></tr>');
 							});
