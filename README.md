@@ -1,3 +1,3 @@
 # Boogle
 
-https://home.justinkusz.me/~justin/Boogle/index.html
+https://justinkusz.me/courses/cs4731/Boogle/
